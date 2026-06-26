@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf6f5;
+  --foreground: #1e1f29;
+  --glow-color: rgba(236, 72, 153, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* 3D Sphere Style from reference */
+.sphere-3d {
+  background: radial-gradient(circle at 30% 30%, #e879f9 0%, #a855f7 60%, #701a75 100%);
+  box-shadow: 
+    inset -10px -10px 30px rgba(0, 0, 0, 0.5),
+    10px 20px 40px rgba(168, 85, 247, 0.25);
+  border-radius: 50%;
+  position: relative;
+}
+
+.sphere-3d::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 30%;
+  height: 20%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: rotate(-30deg);
+  filter: blur(2px);
+}
+
+/* Custom Utilities for Warm Light Aesthetics */
+.neon-glow {
+  box-shadow: 0 20px 50px -15px var(--glow-color);
+}
+
+.neon-border {
+  border: 1px solid rgba(236, 72, 153, 0.15);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(236, 72, 153, 0.08);
+  box-shadow: 0 10px 40px -10px rgba(236, 72, 153, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(236, 72, 153, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf6f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2d6d4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ec4899;
+}
+
+/* Micro-animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
