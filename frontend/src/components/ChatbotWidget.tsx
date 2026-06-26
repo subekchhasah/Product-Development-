@@ -554,11 +554,11 @@ Assistant:`;
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end w-full sm:w-auto h-full sm:h-auto pointer-events-none">
       
       {/* Expanded Chat Box */}
       {isOpen && (
-        <div className="w-[360px] sm:w-[410px] h-[550px] rounded-[32px] border border-brand-border bg-white/90 backdrop-blur-xl shadow-2xl flex flex-col mb-4 overflow-hidden animate-float-in transition-all">
+        <div className="w-full h-[100dvh] sm:w-[410px] sm:h-[600px] sm:rounded-[32px] rounded-none border-0 sm:border border-brand-border bg-gradient-to-b from-white/95 to-slate-50/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden animate-float-in transition-all pointer-events-auto sm:mb-4">
           
           {/* Header */}
           <div className="p-4 bg-gradient-to-r from-brand-primary/10 via-brand-purple/10 to-brand-secondary/10 border-b border-brand-border/60 flex items-center justify-between">
@@ -606,7 +606,7 @@ Assistant:`;
 
           {/* API Key settings panel or standard Chat Interface */}
           {isSettingsOpen ? (
-            <div className="flex-grow flex flex-col p-5 bg-white space-y-4">
+            <div className="flex-grow flex flex-col p-5 bg-gradient-to-b from-white to-slate-50/80 space-y-4 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px]">
               <div className="flex items-center gap-2 text-brand-charcoal font-bold text-xs">
                 <Settings className="w-4 h-4 text-brand-primary animate-spin" style={{ animationDuration: '4s' }} />
                 <span>Configure Chatbot AI</span>
@@ -678,7 +678,7 @@ Assistant:`;
           ) : (
             <>
               {/* Chat Feed */}
-              <div className="flex-grow overflow-y-auto p-4 space-y-4">
+              <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-slate-50/30 via-white/80 to-slate-100/10 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px]">
                 {messages.map((msg, i) => (
                   <div
                     key={i}
@@ -900,7 +900,9 @@ Assistant:`;
       {/* Floating Circular Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 rounded-full bg-gradient-to-tr from-brand-primary to-brand-purple hover:opacity-95 text-white flex items-center justify-center shadow-lg shadow-brand-primary/25 transition-transform active:scale-95 duration-200 relative group animate-float"
+        className={`${
+          isOpen ? 'hidden sm:flex' : 'flex'
+        } w-14 h-14 rounded-full bg-gradient-to-tr from-brand-primary to-brand-purple hover:opacity-95 text-white items-center justify-center shadow-lg shadow-brand-primary/25 transition-transform active:scale-95 duration-200 relative group animate-float pointer-events-auto mr-6 mb-6 sm:mr-0 sm:mb-0`}
         aria-label="Toggle AI Assistant Chat"
       >
         {isOpen ? <X className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}
