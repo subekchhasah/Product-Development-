@@ -43,7 +43,7 @@ const callGeminiClientSide = async (apiKey: string, prompt: string) => {
 const SESSION_MOCK_INQUIRIES: Record<string, any> = {};
 
 export default function ChatbotWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: 'bot',

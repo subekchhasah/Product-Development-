@@ -918,190 +918,258 @@ export default function LandingPage() {
 
       {/* 11. Interactive Contact Us Form & Categorization */}
       <section id="contact" className="py-20 bg-white border-t border-brand-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-xs font-bold uppercase tracking-widest text-brand-primary mb-3">Contact Us</h2>
             <p className="text-3xl font-extrabold text-brand-charcoal">Let's Engineer Solutions Together</p>
             <p className="text-xs text-brand-muted mt-2">
-              Submit your project specifications. Our intelligent backend will instantly categorize your request and alert the correct developer squad.
+              Submit your project specifications or get in touch with our lead systems engineer directly.
             </p>
           </div>
 
-          <div className="bg-brand-dark border border-brand-border rounded-[32px] p-6 md:p-8 shadow-sm">
-            {formSuccess ? (
-              <div className="text-center py-8 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 flex items-center justify-center mx-auto mb-4 animate-bounce">
-                  <CheckCircle className="w-10 h-10" />
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Direct Contact Info Card */}
+            <div className="lg:col-span-4 bg-brand-dark border border-brand-border rounded-[32px] p-8 space-y-6 shadow-sm">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-brand-primary tracking-wider block mb-1">Direct Line</span>
+                <h3 className="text-xl font-extrabold text-brand-charcoal">Subekchha Sah</h3>
+                <p className="text-xs text-brand-muted mt-1">Lead Systems Engineer & Platform Creator</p>
+              </div>
 
-                <h3 className="text-xl font-bold text-brand-charcoal">Inquiry Submitted Successfully!</h3>
-                <p className="text-xs text-brand-muted max-w-md mx-auto leading-relaxed">
-                  A verification email has been simulated and logged. Our algorithms have categorized your query, and a team representative will follow up.
-                </p>
+              <div className="h-[1px] bg-brand-border/60"></div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto bg-white p-4 rounded-2xl border border-brand-border mt-6 text-left shadow-sm">
-                  <div>
-                    <span className="text-[10px] text-brand-muted block uppercase font-bold">Inquiry Category</span>
-                    <span className="text-xs font-bold text-brand-secondary mt-1 block">
-                      {formSuccess.category}
-                    </span>
+              <div className="space-y-4 text-xs font-semibold text-brand-charcoal">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary shrink-0">
+                    <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-brand-muted block uppercase font-bold">Tracking Reference</span>
-                    <span className="text-xs font-mono font-bold text-brand-primary mt-1 block">
-                      {formSuccess.trackingReference}
-                    </span>
+                    <span className="text-[9px] text-brand-muted uppercase block">Specialization</span>
+                    <span>AI Chatbots & Prototyping</span>
                   </div>
                 </div>
 
-                <div className="pt-6">
-                  <button
-                    onClick={() => setFormSuccess(null)}
-                    className="px-6 py-2.5 rounded-full bg-brand-primary hover:opacity-95 text-white text-xs font-bold shadow-md shadow-brand-primary/20"
-                  >
-                    Submit Another Inquiry
-                  </button>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center text-brand-secondary shrink-0">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[9px] text-brand-muted uppercase block">Direct Email</span>
+                    <a href="mailto:subekchhasah@gmail.com" className="hover:text-brand-primary transition-colors font-mono">
+                      subekchhasah@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center text-brand-purple shrink-0">
+                    <Users className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[9px] text-brand-muted uppercase block">Contact Number</span>
+                    <a href="tel:9820365426" className="hover:text-brand-primary transition-colors font-mono">
+                      9820365426
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary shrink-0">
+                    <Globe className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[9px] text-brand-muted uppercase block">Office Location</span>
+                    <span>London, United Kingdom</span>
+                  </div>
                 </div>
               </div>
-            ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-6">
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="h-[1px] bg-brand-border/60"></div>
+
+              <p className="text-[11px] text-brand-muted leading-relaxed">
+                Connect directly with Subekchha to discuss custom systems architecture, database audit integrations, or fast Figma design to React component code pipelines.
+              </p>
+            </div>
+
+            {/* Inquiry Form */}
+            <div className="lg:col-span-8 bg-brand-dark border border-brand-border rounded-[32px] p-6 md:p-8 shadow-sm">
+              {formSuccess ? (
+                <div className="text-center py-8 space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 flex items-center justify-center mx-auto mb-4 animate-bounce">
+                    <CheckCircle className="w-10 h-10" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-brand-charcoal">Inquiry Submitted Successfully!</h3>
+                  <p className="text-xs text-brand-muted max-w-md mx-auto leading-relaxed">
+                    A verification email has been simulated and logged. Our algorithms have categorized your query, and a team representative will follow up.
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto bg-white p-4 rounded-2xl border border-brand-border mt-6 text-left shadow-sm">
+                    <div>
+                      <span className="text-[10px] text-brand-muted block uppercase font-bold">Inquiry Category</span>
+                      <span className="text-xs font-bold text-brand-secondary mt-1 block">
+                        {formSuccess.category}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-brand-muted block uppercase font-bold">Tracking Reference</span>
+                      <span className="text-xs font-mono font-bold text-brand-primary mt-1 block">
+                        {formSuccess.trackingReference}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="pt-6">
+                    <button
+                      onClick={() => setFormSuccess(null)}
+                      className="px-6 py-2.5 rounded-full bg-brand-primary hover:opacity-95 text-white text-xs font-bold shadow-md shadow-brand-primary/20"
+                    >
+                      Submit Another Inquiry
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-6">
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="fullName" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="fullName"
+                        required
+                        value={formData.fullName}
+                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                        placeholder="e.g. Alexis Carter"
+                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="e.g. alexis@company.com"
+                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                      <label htmlFor="phone" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="e.g. +1 (555) 123-4567"
+                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="companyName" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
+                        Company Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="companyName"
+                        required
+                        value={formData.companyName}
+                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                        placeholder="e.g. Zenith Tech"
+                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="country" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
+                        Country *
+                      </label>
+                      <input
+                        type="text"
+                        id="country"
+                        required
+                        value={formData.country}
+                        onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                        placeholder="e.g. United Kingdom"
+                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="fullName" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
-                      Full Name *
+                    <label htmlFor="jobTitle" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
+                      Job Title *
                     </label>
                     <input
                       type="text"
-                      id="fullName"
+                      id="jobTitle"
                       required
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="e.g. Alexis Carter"
+                      value={formData.jobTitle}
+                      onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
+                      placeholder="e.g. VP of Product Engineering"
                       className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
-                      Email Address *
+                    <label htmlFor="jobDetails" className="block text-xs font-semibold text-brand-charcoal mb-1.5 flex justify-between">
+                      <span>Job Details & Specifications *</span>
+                      <span className="text-[10px] text-brand-muted font-normal italic">
+                        Tip: write "prototype" or "chatbot" for auto-routing.
+                      </span>
                     </label>
-                    <input
-                      type="email"
-                      id="email"
+                    <textarea
+                      id="jobDetails"
                       required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="e.g. alexis@company.com"
-                      className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="e.g. +1 (555) 123-4567"
-                      className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
-                    />
+                      rows={4}
+                      value={formData.jobDetails}
+                      onChange={(e) => setFormData({ ...formData, jobDetails: e.target.value })}
+                      placeholder="Describe your system integrations, dashboard mockups, or chatbot workflows in detail..."
+                      className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all resize-none shadow-sm"
+                    ></textarea>
                   </div>
 
-                  <div>
-                    <label htmlFor="companyName" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
-                      Company Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="companyName"
-                      required
-                      value={formData.companyName}
-                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      placeholder="e.g. Zenith Tech"
-                      className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="country" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
-                      Country *
-                    </label>
-                    <input
-                      type="text"
-                      id="country"
-                      required
-                      value={formData.country}
-                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                      placeholder="e.g. United Kingdom"
-                      className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="jobTitle" className="block text-xs font-semibold text-brand-charcoal mb-1.5">
-                    Job Title *
-                  </label>
-                  <input
-                    type="text"
-                    id="jobTitle"
-                    required
-                    value={formData.jobTitle}
-                    onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
-                    placeholder="e.g. VP of Product Engineering"
-                    className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="jobDetails" className="block text-xs font-semibold text-brand-charcoal mb-1.5 flex justify-between">
-                    <span>Job Details & Specifications *</span>
-                    <span className="text-[10px] text-brand-muted font-normal italic">
-                      Tip: write "prototype" or "chatbot" for auto-routing.
-                    </span>
-                  </label>
-                  <textarea
-                    id="jobDetails"
-                    required
-                    rows={4}
-                    value={formData.jobDetails}
-                    onChange={(e) => setFormData({ ...formData, jobDetails: e.target.value })}
-                    placeholder="Describe your system integrations, dashboard mockups, or chatbot workflows in detail..."
-                    className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all resize-none shadow-sm"
-                  ></textarea>
-                </div>
-
-                {formError && (
-                  <div className="p-3 bg-red-50/50 border border-red-200 text-red-500 rounded-xl text-xs font-medium">
-                    {formError}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={formLoading}
-                  className="w-full py-4 rounded-full font-bold bg-gradient-to-r from-brand-primary to-brand-purple hover:opacity-95 text-white text-xs flex items-center justify-center gap-2 shadow-md shadow-brand-primary/20 hover:scale-[1.005] transition-all"
-                >
-                  {formLoading ? (
-                    'Analyzing & Submitting Inquiry...'
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      Submit Project Inquiry
-                    </>
+                  {formError && (
+                    <div className="p-3 bg-red-50/50 border border-red-200 text-red-500 rounded-xl text-xs font-medium">
+                      {formError}
+                    </div>
                   )}
-                </button>
 
-              </form>
-            )}
+                  <button
+                    type="submit"
+                    disabled={formLoading}
+                    className="w-full py-4 rounded-full font-bold bg-gradient-to-r from-brand-primary to-brand-purple hover:opacity-95 text-white text-xs flex items-center justify-center gap-2 shadow-md shadow-brand-primary/20 hover:scale-[1.005] transition-all"
+                  >
+                    {formLoading ? (
+                      'Analyzing & Submitting Inquiry...'
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Submit Project Inquiry
+                      </>
+                    )}
+                  </button>
+
+                </form>
+              )}
+            </div>
+
           </div>
 
         </div>
