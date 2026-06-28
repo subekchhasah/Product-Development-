@@ -4,6 +4,11 @@
     "database.sqlite-journal",
     "database.sqlite-wal",
     "database.sqlite-shm",
+    "*.sqlite",
+    "*.sqlite-journal",
+    "*.sqlite-wal",
+    "*.sqlite-shm",
+    "*database.sqlite*",
     "node_modules/**"
   ]
 }

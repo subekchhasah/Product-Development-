@@ -44,13 +44,7 @@ const SESSION_MOCK_INQUIRIES: Record<string, any> = {};
 
 export default function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(true);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      sender: 'bot',
-      text: 'Hi there! I am the AI-Solutions Virtual Assistant. I can answer questions about our services or guide you through submitting and tracking project inquiries directly in this chat!',
-      timestamp: new Date()
-    }
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -59,12 +53,19 @@ export default function ChatbotWidget() {
   const [userGeminiKey, setUserGeminiKey] = useState('');
   const [showUserKey, setShowUserKey] = useState(false);
 
-  // Load key from localStorage on mount
+  // Load key and initialize chatbot welcome message on mount to prevent hydration mismatch
   useEffect(() => {
     const storedKey = localStorage.getItem('user_gemini_key');
     if (storedKey) {
       setUserGeminiKey(storedKey);
     }
+    setMessages([
+      {
+        sender: 'bot',
+        text: 'Hi there! I am the AI-Solutions Virtual Assistant. I can answer questions about our services or guide you through submitting and tracking project inquiries directly in this chat!',
+        timestamp: new Date()
+      }
+    ]);
   }, []);
 
   // Guided Inquiry Form Flow State
@@ -796,7 +797,7 @@ Assistant:`;
                             ? 'bg-gradient-to-tr from-brand-primary to-brand-purple text-white rounded-tr-none shadow-sm'
                             : 'bg-white border border-brand-border text-brand-charcoal rounded-tl-none shadow-sm'
                         }`}>
-                          {msg.text.split('\n').map((line, idx) => (
+                          {(msg.text || '').split('\n').map((line, idx) => (
                             <p key={idx} className={line.startsWith('- ') ? 'pl-2 text-[11px]' : ''}>
                               {line}
                             </p>
