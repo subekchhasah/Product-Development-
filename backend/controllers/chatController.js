@@ -18,7 +18,7 @@ const getLocalBotResponse = (message = '') => {
 
   // 3. Small talk - Location / Location details
   if (query.includes('location') || query.includes('located') || query.includes('where are you') || query.includes('address')) {
-    return "AI-Solutions is based in London, United Kingdom. We deploy enterprise digital workplace applications and remote agent services globally.";
+    return "AI-Solutions is based in Sunderland, United Kingdom. We deploy enterprise digital workplace applications and remote agent services globally.";
   }
 
   // 4. Custom queries for developer Subekchha Sah
@@ -208,7 +208,7 @@ exports.handleChat = async (req, res) => {
 
 Creator/Owner Info: Subekchha Sah is the Lead Systems Engineer and Developer who built this entire Next.js, Express, and PostgreSQL/SQLite platform.
 
-We are based in London, UK, deploying enterprise digital workplace tools and remote agents globally.
+We are based in Sunderland, UK, deploying enterprise digital workplace tools and remote agents globally.
 
 ${dbContext}
 

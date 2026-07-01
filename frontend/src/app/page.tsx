@@ -227,7 +227,7 @@ export default function LandingPage() {
         } else if (lowerText.includes('thank you') || lowerText.includes('thanks') || lowerText.includes('appreciate') || lowerText.includes('grateful')) {
           reply = "You're very welcome! I'm always glad to help. Let me know if you have any other questions about AI-Solutions or computer systems engineering!";
         } else if (lowerText.includes('location') || lowerText.includes('located') || lowerText.includes('where are you') || lowerText.includes('address')) {
-          reply = "AI-Solutions is based in London, United Kingdom. We deploy enterprise digital workplace applications and remote agent services globally.";
+          reply = "AI-Solutions is based in Sunderland, United Kingdom. We deploy enterprise digital workplace applications and remote agent services globally.";
         } else if (lowerText.includes('subekchha') || lowerText.includes('creator') || lowerText.includes('owner') || lowerText.includes('made') || lowerText.includes('sah') || lowerText.includes('developer')) {
           reply = "Subekchha Sah is the Lead Systems Engineer and Developer of AI-Solutions. She designed and built this entire computer engineering platform, integrating Next.js, Express, and PostgreSQL/SQLite with interactive AI widgets and high-contrast admin dashboard interfaces.";
         } else if (lowerText.includes('stack') || lowerText.includes('tech') || lowerText.includes('language') || lowerText.includes('framework')) {
@@ -1023,7 +1023,7 @@ export default function LandingPage() {
                   </div>
                   <div>
                     <span className="text-[9px] text-brand-muted uppercase block">Office Location</span>
-                    <span>London, United Kingdom</span>
+                    <span>Sunderland, United Kingdom</span>
                   </div>
                 </div>
               </div>

@@ -133,7 +133,7 @@ export default function ChatbotWidget() {
       return "You're very welcome! I'm always glad to help. Let me know if you have any other questions about AI-Solutions or computer systems engineering!";
     }
     if (query.includes('location') || query.includes('located') || query.includes('where are you') || query.includes('address')) {
-      return "AI-Solutions is based in London, United Kingdom. We deploy enterprise digital workplace applications and remote agent services globally.";
+      return "AI-Solutions is based in Sunderland, United Kingdom. We deploy enterprise digital workplace applications and remote agent services globally.";
     }
     if (query.includes('subekchha') || query.includes('creator') || query.includes('owner') || query.includes('made') || query.includes('sah') || query.includes('developer')) {
       return "Subekchha Sah is the Lead Systems Engineer and Developer of AI-Solutions. She designed and built this entire computer engineering platform, integrating Next.js, Express, and PostgreSQL/SQLite with interactive AI widgets and high-contrast admin dashboard interfaces.";
@@ -520,7 +520,7 @@ export default function ChatbotWidget() {
 Company details:
 - Creator/Lead Systems Engineer: Subekchha Sah (built Next.js 14 App Router frontend, Express backend, Sequelize ORM, SQLite/PostgreSQL fallback database).
 - Services: AI Virtual Assistants (chatbots, custom API integrations), AI-Powered Prototyping (Figma wireframes to Next.js components), Business Automation (RPA processes, invoicing, scheduling), Digital Workplace Solutions (employee portal, internal search, onboarding).
-- Based in: London, United Kingdom.
+- Based in: Sunderland, United Kingdom.
 - Tech stack: Next.js 14, Node.js, Express, Sequelize, SQLite / PostgreSQL.
 - Events: Next-Gen Enterprise Automation Webinar (June 24, 2026).
 - Articles: "The Future of AI Assistants in DEX", "Transforming Figma to Code with AI", "Enterprise Automation Trends in 2026".
