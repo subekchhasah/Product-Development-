@@ -433,14 +433,15 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 text-brand-charcoal">
+    <div className="w-full min-h-screen bg-slate-50 text-slate-800 -mt-24 pt-28 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
       
       {/* Title & Info Banner */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10 pb-6 border-b border-brand-border/60">
         <div>
           <span className="text-xs font-bold uppercase tracking-widest text-brand-secondary">Console Panel</span>
-          <h1 className="text-3xl font-extrabold text-brand-charcoal mt-1">Systems Operations Dashboard</h1>
-          <p className="text-xs text-brand-muted mt-1">Logged in as: <span className="text-brand-charcoal font-semibold">{adminName}</span></p>
+          <h1 className="text-3xl font-extrabold text-slate-900 mt-1">Systems Operations Dashboard</h1>
+          <p className="text-xs text-slate-500 mt-1">Logged in as: <span className="text-slate-900 font-semibold">{adminName}</span></p>
         </div>
         
         <div className="flex items-center gap-3 relative">
@@ -534,21 +535,20 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      {/* Inquiry Statistics Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {[
           { icon: <FileText className="w-5 h-5 text-brand-primary" />, title: 'Total Inquiries', value: summary.total },
           { icon: <RefreshCw className="w-5 h-5 text-brand-secondary" />, title: 'New Inquiries', value: summary.new },
           { icon: <Calendar className="w-5 h-5 text-brand-purple" />, title: 'Monthly Submissions', value: summary.monthly },
-          { icon: <CheckCircle className="w-5 h-5 text-emerald-400" />, title: 'Resolution Rate', value: `${summary.completionRate}%` }
+          { icon: <CheckCircle className="w-5 h-5 text-emerald-600" />, title: 'Resolution Rate', value: `${summary.completionRate}%` }
         ].map((card, idx) => (
-          <div key={idx} className="glass-panel border border-brand-border p-5 rounded-2xl flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center shrink-0 border border-brand-border">
+          <div key={idx} className="bg-white border border-slate-200 shadow-sm p-5 rounded-2xl flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-200">
               {card.icon}
             </div>
             <div>
-              <span className="text-[10px] text-brand-muted uppercase tracking-wider block">{card.title}</span>
-              <span className="text-xl font-extrabold text-brand-charcoal mt-0.5 block">{card.value}</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider block">{card.title}</span>
+              <span className="text-xl font-extrabold text-slate-900 mt-0.5 block">{card.value}</span>
             </div>
           </div>
         ))}
@@ -557,30 +557,30 @@ export default function AdminDashboard() {
       {/* Analytics and Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
         {/* Trend Area Chart */}
-        <div className="lg:col-span-8 glass-panel border border-brand-border p-6 rounded-2xl">
-          <h3 className="text-sm font-bold text-brand-charcoal mb-6">Inquiry Volume Trends</h3>
+        <div className="lg:col-span-8 bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+          <h3 className="text-sm font-bold text-slate-900 mb-6">Inquiry Volume Trends</h3>
           <div className="h-64 w-full text-xs">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={trends} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.4}/>
-                    <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.2}/>
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#23263b" vertical={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
                 <XAxis dataKey="month" stroke="#94a3b8" />
                 <YAxis stroke="#94a3b8" allowDecimals={false} />
-                <Tooltip contentStyle={{ backgroundColor: '#141624', borderColor: '#23263b', color: '#fff' }} />
-                <Area type="monotone" dataKey="count" stroke="#6366f1" strokeWidth={2.5} fillOpacity={1} fill="url(#colorCount)" />
+                <Tooltip contentStyle={{ backgroundColor: '#fff', borderColor: '#e2e8f0', color: '#0f172a' }} />
+                <Area type="monotone" dataKey="count" stroke="#3b82f6" strokeWidth={2.5} fillOpacity={1} fill="url(#colorCount)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Service Demand Bar Chart */}
-        <div className="lg:col-span-4 glass-panel border border-brand-border p-6 rounded-2xl flex flex-col justify-between">
-          <h3 className="text-sm font-bold text-brand-charcoal mb-4">Service Demand Profile</h3>
+        <div className="lg:col-span-4 bg-white border border-slate-200 p-6 rounded-2xl flex flex-col justify-between shadow-sm">
+          <h3 className="text-sm font-bold text-slate-900 mb-4">Service Demand Profile</h3>
           
           <div className="h-48 w-full text-xs">
             <ResponsiveContainer width="100%" height="100%">
@@ -599,14 +599,14 @@ export default function AdminDashboard() {
           </div>
 
           {/* Chart Legend */}
-          <div className="space-y-1.5 mt-4 border-t border-brand-border/60 pt-4">
+          <div className="space-y-1.5 mt-4 border-t border-slate-200 pt-4">
             {demand.map((item, idx) => (
               <div key={idx} className="flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2 text-brand-muted">
+                <div className="flex items-center gap-2 text-slate-500">
                   <span className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[idx % COLORS.length] }}></span>
                   <span className="truncate max-w-[160px]">{item.name}</span>
                 </div>
-                <span className="font-bold text-brand-charcoal">{item.value} inquiries</span>
+                <span className="font-bold text-slate-900">{item.value} inquiries</span>
               </div>
             ))}
           </div>
@@ -614,14 +614,14 @@ export default function AdminDashboard() {
       </div>
 
       {/* AI Assistant API Keys Configuration */}
-      <div className="glass-panel border border-brand-border p-6 rounded-2xl mb-8">
+      <div className="bg-white border border-slate-200 p-6 rounded-2xl mb-8 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center shrink-0 border border-brand-border">
+          <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-200">
             <Cpu className="w-5 h-5 text-brand-primary" />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-brand-charcoal">AI Assistant API Credentials</h3>
-            <p className="text-[11px] text-brand-muted mt-0.5">Configure global Gemini/OpenAI API keys used to power live responses in the chat widget.</p>
+            <h3 className="text-sm font-bold text-slate-900">AI Assistant API Credentials</h3>
+            <p className="text-[11px] text-slate-500 mt-0.5">Configure global Gemini/OpenAI API keys used to power live responses in the chat widget.</p>
           </div>
         </div>
 
@@ -636,12 +636,12 @@ export default function AdminDashboard() {
                   value={geminiApiKey}
                   onChange={(e) => setGeminiApiKey(e.target.value)}
                   placeholder="Enter Gemini API Key..."
-                  className="w-full bg-brand-dark border border-brand-border rounded-xl pl-4 pr-10 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors font-mono"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-10 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors font-mono"
                 />
                 <button
                   type="button"
                   onClick={() => setShowGeminiKey(!showGeminiKey)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-brand-muted hover:text-brand-charcoal"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600"
                 >
                   {showGeminiKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -650,19 +650,19 @@ export default function AdminDashboard() {
 
             {/* OpenAI API Key */}
             <div className="space-y-1.5">
-              <label className="text-[10px] text-brand-muted uppercase font-bold tracking-wider block">OpenAI API Key</label>
+              <label className="text-[10px] text-slate-500 uppercase font-bold tracking-wider block">OpenAI API Key</label>
               <div className="relative">
                 <input
                   type={showOpenaiKey ? 'text' : 'password'}
                   value={openaiApiKey}
                   onChange={(e) => setOpenaiApiKey(e.target.value)}
                   placeholder="Enter OpenAI API Key..."
-                  className="w-full bg-brand-dark border border-brand-border rounded-xl pl-4 pr-10 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors font-mono"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-10 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors font-mono"
                 />
                 <button
                   type="button"
                   onClick={() => setShowOpenaiKey(!showOpenaiKey)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-brand-muted hover:text-brand-charcoal"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600"
                 >
                   {showOpenaiKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -674,8 +674,8 @@ export default function AdminDashboard() {
           {settingsMessage && (
             <div className={`p-3 rounded-xl border text-[11px] font-semibold ${
               settingsMessage.type === 'success' 
-                ? 'bg-emerald-950/20 border-emerald-900/50 text-emerald-400 animate-fade-in' 
-                : 'bg-red-950/20 border-red-900/50 text-red-400 animate-fade-in'
+                ? 'bg-emerald-50 border-emerald-200 text-emerald-700 animate-fade-in' 
+                : 'bg-red-50 border-red-200 text-red-700 animate-fade-in'
             }`}>
               {settingsMessage.text}
             </div>
@@ -704,14 +704,14 @@ export default function AdminDashboard() {
       </div>
 
       {/* Inquiry Management Module */}
-      <div className="glass-panel border border-brand-border rounded-2xl overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         
         {/* Filters bar */}
-        <div className="p-5 bg-brand-card/40 border-b border-brand-border grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+        <div className="p-5 bg-slate-50/70 border-b border-slate-200 grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
           
           {/* Search box */}
           <div className="relative md:col-span-2">
-            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-brand-muted">
+            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
               <Search className="w-4 h-4" />
             </span>
             <input
@@ -719,7 +719,7 @@ export default function AdminDashboard() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by name, company, job title or ref..."
-              className="w-full bg-brand-dark border border-brand-border rounded-xl pl-9 pr-4 py-2 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors"
             />
           </div>
 
@@ -728,7 +728,7 @@ export default function AdminDashboard() {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full bg-brand-dark border border-brand-border rounded-xl px-3 py-2 text-xs text-brand-charcoal focus:outline-none focus:border-brand-primary"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-brand-primary"
             >
               <option value="All">All Categories</option>
               <option value="AI Virtual Assistant Request">AI Virtual Assistants</option>
@@ -743,7 +743,7 @@ export default function AdminDashboard() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full bg-brand-dark border border-brand-border rounded-xl px-3 py-2 text-xs text-brand-charcoal focus:outline-none focus:border-brand-primary"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-brand-primary"
             >
               <option value="All">All Statuses</option>
               <option value="New">New</option>
@@ -759,7 +759,7 @@ export default function AdminDashboard() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-brand-border text-[10px] uppercase font-bold text-brand-muted tracking-wider bg-brand-card/20">
+              <tr className="border-b border-slate-200 text-[10px] uppercase font-bold text-slate-500 tracking-wider bg-slate-50/50">
                 <th className="p-4">Reference</th>
                 <th className="p-4">Contact Profile</th>
                 <th className="p-4">Category</th>
@@ -767,26 +767,26 @@ export default function AdminDashboard() {
                 <th className="p-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-brand-border/40 text-xs">
+            <tbody className="divide-y divide-slate-100 text-xs">
               {filteredInquiries.length > 0 ? (
                 filteredInquiries.map((inq) => (
-                  <tr key={inq.id} className="hover:bg-brand-card/10 transition-colors">
+                  <tr key={inq.id} className="hover:bg-slate-50/75 transition-colors text-slate-700">
                     <td className="p-4 font-mono font-semibold text-brand-primary">{inq.trackingReference}</td>
                     <td className="p-4">
-                      <div className="font-bold text-brand-charcoal">{inq.fullName}</div>
-                      <div className="text-[10px] text-brand-muted">{inq.companyName} &bull; {inq.jobTitle}</div>
+                      <div className="font-bold text-slate-800">{inq.fullName}</div>
+                      <div className="text-[10px] text-slate-500">{inq.companyName} &bull; {inq.jobTitle}</div>
                     </td>
                     <td className="p-4">
-                      <span className="px-2 py-0.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-[9px] font-medium text-brand-secondary">
+                      <span className="px-2 py-0.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-[9px] font-semibold text-brand-primary">
                         {inq.category}
                       </span>
                     </td>
                     <td className="p-4">
                       <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${
-                        inq.status === 'New' ? 'bg-blue-950 text-blue-400 border border-blue-900/50' :
-                        inq.status === 'In Progress' ? 'bg-amber-950 text-amber-400 border border-amber-900/50' :
-                        inq.status === 'Processed' ? 'bg-purple-950 text-purple-400 border border-purple-900/50' :
-                        'bg-slate-900 text-slate-400 border border-slate-800'
+                        inq.status === 'New' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
+                        inq.status === 'In Progress' ? 'bg-amber-100 text-amber-700 border border-amber-200' :
+                        inq.status === 'Processed' ? 'bg-purple-100 text-purple-700 border border-purple-200' :
+                        'bg-slate-100 text-slate-700 border border-slate-200'
                       }`}>
                         {inq.status}
                       </span>
@@ -794,7 +794,7 @@ export default function AdminDashboard() {
                     <td className="p-4 text-right flex justify-end gap-1.5">
                       <button
                         onClick={() => setSelectedInquiry(inq)}
-                        className="p-1.5 rounded-lg bg-brand-card hover:bg-brand-primary/10 border border-brand-border text-brand-muted hover:text-brand-primary transition-colors inline-flex items-center gap-1"
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-brand-primary/10 border border-slate-200 text-slate-500 hover:text-brand-primary transition-colors inline-flex items-center gap-1"
                         title="Inspect"
                       >
                         <Eye className="w-3.5 h-3.5" />
@@ -805,7 +805,7 @@ export default function AdminDashboard() {
                           setSelectedInquiry(inq);
                           setIsEditing(true);
                         }}
-                        className="p-1.5 rounded-lg bg-brand-card hover:bg-brand-secondary/10 border border-brand-border text-brand-muted hover:text-brand-secondary transition-colors inline-flex items-center gap-1"
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-brand-secondary/10 border border-slate-200 text-slate-500 hover:text-brand-secondary transition-colors inline-flex items-center gap-1"
                         title="Edit Info"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
@@ -813,7 +813,7 @@ export default function AdminDashboard() {
                       </button>
                       <button
                         onClick={() => handleDeleteInquiry(inq.id)}
-                        className="p-1.5 rounded-lg bg-red-950/20 hover:bg-red-900/20 border border-red-900/40 text-red-400 hover:text-red-300 transition-colors inline-flex items-center gap-1"
+                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-100 border border-red-200 text-red-600 hover:text-red-700 transition-colors inline-flex items-center gap-1"
                         title="Delete"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -838,17 +838,17 @@ export default function AdminDashboard() {
       {/* Inquiry Detail Inspector Overlay / Modal */}
       {selectedInquiry && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-w-2xl bg-brand-card border border-brand-border rounded-2xl shadow-2xl relative flex flex-col max-h-[90vh]">
+          <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-2xl shadow-2xl relative flex flex-col max-h-[90vh] text-slate-700">
             
             {/* Header */}
-            <div className="p-5 border-b border-brand-border flex justify-between items-center bg-brand-dark/20">
+            <div className="p-5 border-b border-slate-200 flex justify-between items-center bg-slate-50">
               <div>
                 <span className="text-[10px] font-mono text-brand-primary uppercase font-bold">Inquiry Inspector</span>
-                <h4 className="text-base font-bold text-brand-charcoal mt-1">Ref: {selectedInquiry.trackingReference}</h4>
+                <h4 className="text-base font-bold text-slate-900 mt-1">Ref: {selectedInquiry.trackingReference}</h4>
               </div>
               <button
                 onClick={() => setSelectedInquiry(null)}
-                className="text-brand-muted hover:text-brand-primary text-lg font-bold"
+                className="text-slate-400 hover:text-brand-primary text-lg font-bold"
               >
                 &times;
               </button>
@@ -862,73 +862,73 @@ export default function AdminDashboard() {
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] text-brand-muted uppercase font-bold">Contact Name</label>
+                      <label className="text-[10px] text-slate-500 uppercase font-bold">Contact Name</label>
                       <input 
                         type="text" 
                         value={editName} 
                         onChange={(e) => setEditName(e.target.value)}
-                        className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-semibold outline-none focus:border-brand-primary"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold outline-none focus:border-brand-primary"
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[10px] text-brand-muted uppercase font-bold">Job Title</label>
+                      <label className="text-[10px] text-slate-500 uppercase font-bold">Job Title</label>
                       <input 
                         type="text" 
                         value={editJobTitle} 
                         onChange={(e) => setEditJobTitle(e.target.value)}
-                        className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-semibold outline-none focus:border-brand-primary"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold outline-none focus:border-brand-primary"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] text-brand-muted uppercase font-bold">Company Name</label>
+                      <label className="text-[10px] text-slate-500 uppercase font-bold">Company Name</label>
                       <input 
                         type="text" 
                         value={editCompany} 
                         onChange={(e) => setEditCompany(e.target.value)}
-                        className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-semibold outline-none focus:border-brand-primary"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold outline-none focus:border-brand-primary"
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[10px] text-brand-muted uppercase font-bold">Country</label>
+                      <label className="text-[10px] text-slate-500 uppercase font-bold">Country</label>
                       <input 
                         type="text" 
                         value={editCountry} 
                         onChange={(e) => setEditCountry(e.target.value)}
-                        className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-semibold outline-none focus:border-brand-primary"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold outline-none focus:border-brand-primary"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] text-brand-muted uppercase font-bold">Email Address</label>
+                      <label className="text-[10px] text-slate-500 uppercase font-bold">Email Address</label>
                       <input 
                         type="email" 
                         value={editEmail} 
                         onChange={(e) => setEditEmail(e.target.value)}
-                        className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-semibold outline-none focus:border-brand-primary"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold outline-none focus:border-brand-primary"
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[10px] text-brand-muted uppercase font-bold">Phone Number</label>
+                      <label className="text-[10px] text-slate-500 uppercase font-bold">Phone Number</label>
                       <input 
                         type="text" 
                         value={editPhone} 
                         onChange={(e) => setEditPhone(e.target.value)}
-                        className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-semibold outline-none focus:border-brand-primary"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold outline-none focus:border-brand-primary"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] text-brand-muted uppercase font-bold">Service Category</label>
+                    <label className="text-[10px] text-slate-500 uppercase font-bold">Service Category</label>
                     <select
                       value={editCategory}
                       onChange={(e) => setEditCategory(e.target.value)}
-                      className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-semibold outline-none focus:border-brand-primary"
+                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold outline-none focus:border-brand-primary"
                     >
                       <option value="AI Virtual Assistant Request">AI Virtual Assistant Request</option>
                       <option value="Prototyping Request">Prototyping Request</option>
@@ -938,12 +938,12 @@ export default function AdminDashboard() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] text-brand-muted uppercase font-bold">Project Specifications</label>
+                    <label className="text-[10px] text-slate-500 uppercase font-bold">Project Specifications</label>
                     <textarea 
                       value={editJobDetails} 
                       onChange={(e) => setEditJobDetails(e.target.value)}
                       rows={4}
-                      className="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded-lg text-brand-charcoal font-sans outline-none focus:border-brand-primary leading-relaxed"
+                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-sans outline-none focus:border-brand-primary leading-relaxed"
                     />
                   </div>
 
@@ -969,33 +969,33 @@ export default function AdminDashboard() {
                 /* View Mode */
                 <div className="space-y-6">
                   {/* Profile details */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-brand-dark p-4 rounded-xl border border-brand-border">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-600">
                     <div className="space-y-1.5">
-                      <div className="text-[10px] text-brand-muted uppercase font-bold">Contact Person</div>
-                      <div className="font-bold text-brand-charcoal text-sm">{selectedInquiry.fullName}</div>
-                      <div className="text-brand-muted">{selectedInquiry.jobTitle}</div>
-                      <div className="text-brand-muted">{selectedInquiry.companyName}</div>
+                      <div className="text-[10px] text-slate-500 uppercase font-bold">Contact Person</div>
+                      <div className="font-bold text-slate-800 text-sm">{selectedInquiry.fullName}</div>
+                      <div className="text-slate-500">{selectedInquiry.jobTitle}</div>
+                      <div className="text-slate-500">{selectedInquiry.companyName}</div>
                     </div>
 
                     <div className="space-y-1.5">
-                      <div className="text-[10px] text-brand-muted uppercase font-bold">Location & Contact</div>
+                      <div className="text-[10px] text-slate-500 uppercase font-bold">Location & Contact</div>
                       <div>Email: <a href={`mailto:${selectedInquiry.email}`} className="text-brand-secondary hover:underline">{selectedInquiry.email}</a></div>
-                      <div>Phone: <span className="text-brand-charcoal">{selectedInquiry.phone}</span></div>
-                      <div>Country: <span className="text-brand-charcoal">{selectedInquiry.country}</span></div>
+                      <div>Phone: <span className="text-slate-800">{selectedInquiry.phone}</span></div>
+                      <div>Country: <span className="text-slate-800">{selectedInquiry.country}</span></div>
                     </div>
                   </div>
 
                   {/* Categorization Profile */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <span className="text-[10px] text-brand-muted block uppercase font-bold">Classification</span>
+                      <span className="text-[10px] text-slate-500 block uppercase font-bold">Classification</span>
                       <span className="text-xs font-bold text-brand-secondary mt-1 block">
                         {selectedInquiry.category}
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-brand-muted block uppercase font-bold">Created Date</span>
-                      <span className="text-xs font-semibold text-brand-charcoal mt-1 block">
+                      <span className="text-[10px] text-slate-500 block uppercase font-bold">Created Date</span>
+                      <span className="text-xs font-semibold text-slate-800 mt-1 block">
                         {new Date(selectedInquiry.createdAt).toLocaleString()}
                       </span>
                     </div>
@@ -1003,17 +1003,17 @@ export default function AdminDashboard() {
 
                   {/* Details text area */}
                   <div>
-                    <span className="text-[10px] text-brand-muted block uppercase font-bold mb-2">Project Specifications</span>
-                    <div className="p-4 bg-brand-dark rounded-xl border border-brand-border text-brand-charcoal font-sans leading-relaxed whitespace-pre-wrap">
+                    <span className="text-[10px] text-slate-500 block uppercase font-bold mb-2">Project Specifications</span>
+                    <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-slate-700 font-sans leading-relaxed whitespace-pre-wrap">
                       {selectedInquiry.jobDetails}
                     </div>
                   </div>
 
                   {/* Status Update & Actions Selectors */}
-                  <div className="border-t border-brand-border/40 pt-4 space-y-4">
+                  <div className="border-t border-slate-200 pt-4 space-y-4">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                       <div>
-                        <span className="text-[10px] text-brand-muted block uppercase font-bold mb-1.5">Update Status</span>
+                        <span className="text-[10px] text-slate-500 block uppercase font-bold mb-1.5">Update Status</span>
                         <div className="flex gap-2">
                           {['New', 'In Progress', 'Processed', 'Closed'].map((s) => (
                             <button
@@ -1023,7 +1023,7 @@ export default function AdminDashboard() {
                               className={`px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all ${
                                 selectedInquiry.status === s
                                   ? 'bg-brand-primary text-white'
-                                  : 'bg-brand-card hover:bg-brand-primary/10 border border-brand-border text-brand-muted hover:text-brand-primary'
+                                  : 'bg-slate-50 hover:bg-brand-primary/10 border border-slate-200 text-slate-500 hover:text-brand-primary'
                               }`}
                             >
                               {s}
@@ -1035,14 +1035,14 @@ export default function AdminDashboard() {
                       <div className="flex gap-2">
                         <button
                           onClick={() => setIsEditing(true)}
-                          className="flex items-center gap-1 px-4 py-2 bg-brand-card hover:bg-brand-secondary/10 border border-brand-border text-brand-muted hover:text-brand-secondary rounded-xl text-xs font-bold transition-all"
+                          className="flex items-center gap-1 px-4 py-2 bg-slate-50 hover:bg-brand-secondary/10 border border-slate-200 text-slate-500 hover:text-brand-secondary rounded-xl text-xs font-bold transition-all"
                         >
                           <Edit3 className="w-3.5 h-3.5 text-brand-secondary" />
                           Edit Info
                         </button>
                         <button
                           onClick={() => handleDeleteInquiry(selectedInquiry.id)}
-                          className="flex items-center gap-1 px-4 py-2 bg-red-950/20 hover:bg-red-900/20 border border-red-900/40 text-red-400 rounded-xl text-xs font-bold transition-all"
+                          className="flex items-center gap-1 px-4 py-2 bg-red-50 hover:bg-red-100 border border-red-200 text-red-600 rounded-xl text-xs font-bold transition-all"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                           Delete
@@ -1053,7 +1053,7 @@ export default function AdminDashboard() {
                     <div className="flex justify-end pt-2">
                       <button
                         onClick={() => setSelectedInquiry(null)}
-                        className="px-5 py-2 rounded-xl bg-brand-card hover:bg-brand-primary/10 border border-brand-border text-brand-muted hover:text-brand-primary text-xs font-semibold transition-all"
+                        className="px-5 py-2 rounded-xl bg-slate-50 hover:bg-brand-primary/10 border border-slate-200 text-slate-500 hover:text-brand-primary text-xs font-semibold transition-all"
                       >
                         Close Inspector
                       </button>
@@ -1106,6 +1106,7 @@ export default function AdminDashboard() {
         ))}
       </div>
 
+      </div>
     </div>
   );
 }
