@@ -12,13 +12,13 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         brand: {
-          dark: "#08090e", // Deep space dark background
-          card: "#0f111a", // Dark card background
-          border: "#181a25", // Dark border color
-          primary: "#a855f7", // ITactics Neon Purple
-          secondary: "#06b6d4", // Electric Cyan
-          purple: "#ec4899", // Neon Pink
-          muted: "#94a3b8", // Cool slate grey
+          dark: "#060814", // Blue-tinted deep obsidian
+          card: "#0b0f24", // Deep blue-tinted card container
+          border: "#171e3d", // Deep blue-tinted border
+          primary: "#3b82f6", // Neurox Vibrant Royal Blue
+          secondary: "#8b5cf6", // Neurox Tech Violet
+          purple: "#ec4899", // Neurox Pink/Rose
+          muted: "#94a3b8", // Cool slate grey text
           charcoal: "#f8fafc" // High-contrast white/slate text
         }
       },
