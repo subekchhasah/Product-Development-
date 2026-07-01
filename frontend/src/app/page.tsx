@@ -50,6 +50,20 @@ export default function LandingPage() {
   const [articles, setArticles] = useState(BACKUP_ARTICLES);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
 
+  const [heroImageIdx, setHeroImageIdx] = useState(0);
+  const HERO_IMAGES = [
+    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=1000&auto=format&fit=crop'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroImageIdx((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -263,7 +277,7 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
           {/* Left Text Column */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
+          <div className="lg:col-span-6 flex flex-col items-start text-left z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-semibold mb-6">
               <Sparkles className="w-4 h-4" />
               AI-Solutions UI Kit
@@ -323,33 +337,31 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Right Column - Glowing Radial 3D Sphere & Floating Cards */}
-          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[380px]">
-            {/* Ambient shadow glow */}
-            <div className="absolute w-72 h-72 rounded-full bg-brand-primary/10 blur-3xl pointer-events-none"></div>
-
-            {/* 3D Sphere from user reference */}
-            <div className="sphere-3d w-56 h-56 animate-float z-10"></div>
-
-            {/* Floating UI Card 1 (Welcome Message) */}
-            <div className="absolute top-4 left-0 glass-panel rounded-2xl p-4 shadow-xl border border-white/60 max-w-[200px] z-20 hover:scale-105 transition-transform">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-6 h-6 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 text-xs font-bold">S</div>
-                <span className="text-[10px] text-brand-muted font-semibold">Hello, Subekchha Sah</span>
+          {/* Right Column - ITactics Image Slider */}
+          <div className="lg:col-span-6 relative w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden border border-brand-border/60 shadow-2xl z-10">
+            {HERO_IMAGES.map((imgUrl, idx) => (
+              <div
+                key={idx}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  idx === heroImageIdx ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ zIndex: idx === heroImageIdx ? 10 : 0 }}
+              >
+                <Image
+                  src={imgUrl}
+                  alt={`AI Systems Hero ${idx + 1}`}
+                  fill
+                  priority={idx === 0}
+                  className="object-cover object-center transform scale-105 hover:scale-100 transition-transform duration-[4000ms]"
+                />
+                {/* Dark premium gradient overlay to blend image borders */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#08090e] via-transparent to-transparent opacity-90 z-20"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#08090e] via-transparent to-[#08090e] opacity-40 z-20"></div>
               </div>
-              <p className="text-[11px] font-bold text-brand-charcoal leading-snug">How can I assist your team today?</p>
-            </div>
-
-            {/* Floating UI Card 2 (Metrics Badge) */}
-            <div className="absolute bottom-4 right-0 glass-panel rounded-2xl p-4 shadow-xl border border-white/60 max-w-[220px] z-20 hover:scale-105 transition-transform">
-              <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                </div>
-                <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wide">Automated DEX</span>
-              </div>
-              <p className="text-[11px] text-brand-muted leading-snug">Resolving 85% of front-line digital workplace queries.</p>
-            </div>
+            ))}
+            
+            {/* Ambient shadow glow behind the slider */}
+            <div className="absolute -inset-10 bg-brand-primary/10 blur-3xl pointer-events-none -z-10 animate-pulse-slow"></div>
           </div>
 
         </div>
