@@ -39,6 +39,9 @@ const BACKUP_DEMAND = [
 const COLORS = ['#6366f1', '#06b6d4', '#a855f7', '#94a3b8'];
 
 const getApiUrl = (path: string) => {
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return `${process.env.NEXT_PUBLIC_API_URL}${path}`;
+  }
   const host = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
   return `http://${host}:5001${path}`;
 };
