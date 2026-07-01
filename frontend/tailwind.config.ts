@@ -12,14 +12,14 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         brand: {
-          dark: "#faf6f5", // Warm light grey/white
-          card: "#ffffff", // Pure white for cards
-          border: "#f0e4e2", // Very soft pinkish border
-          primary: "#ec4899", // Vibrant Pink
-          secondary: "#06b6d4", // Sky Blue
-          purple: "#a855f7", // Soft Violet/Purple
-          muted: "#6b7280", // Gray text
-          charcoal: "#1e1f29" // Dark text
+          dark: "#08090e", // Deep space dark background
+          card: "#0f111a", // Dark card background
+          border: "#181a25", // Dark border color
+          primary: "#a855f7", // ITactics Neon Purple
+          secondary: "#06b6d4", // Electric Cyan
+          purple: "#ec4899", // Neon Pink
+          muted: "#94a3b8", // Cool slate grey
+          charcoal: "#f8fafc" // High-contrast white/slate text
         }
       },
     },

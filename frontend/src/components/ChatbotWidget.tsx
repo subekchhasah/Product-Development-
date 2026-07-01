@@ -704,7 +704,7 @@ Assistant:`;
                       
                       {msg.isCustomCard ? (
                         // Render Custom Premium Cards
-                        <div className="bg-white border border-brand-border/80 rounded-2xl p-4 shadow-sm text-xs leading-relaxed space-y-3">
+                        <div className="bg-brand-card border border-brand-border/80 rounded-2xl p-4 shadow-sm text-xs leading-relaxed space-y-3">
                           
                           {msg.cardType === 'success' && (
                             <>
@@ -798,7 +798,7 @@ Assistant:`;
                         <div className={`rounded-2xl p-3 text-xs leading-relaxed ${
                           msg.sender === 'user'
                             ? 'bg-gradient-to-tr from-brand-primary to-brand-purple text-white rounded-tr-none shadow-sm'
-                            : 'bg-white border border-brand-border text-brand-charcoal rounded-tl-none shadow-sm'
+                            : 'bg-brand-card border border-brand-border text-brand-charcoal rounded-tl-none shadow-sm'
                         }`}>
                           {(msg.text || '').split('\n').map((line, idx) => (
                             <p key={idx} className={line.startsWith('- ') ? 'pl-2 text-[11px]' : ''}>
@@ -821,7 +821,7 @@ Assistant:`;
                     <div className="w-7 h-7 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20 flex items-center justify-center shrink-0">
                       <Bot className="w-3.5 h-3.5" />
                     </div>
-                    <div className="bg-white border border-brand-border rounded-2xl rounded-tl-none p-3 flex gap-1.5 items-center justify-center shadow-sm">
+                    <div className="bg-brand-card border border-brand-border rounded-2xl rounded-tl-none p-3 flex gap-1.5 items-center justify-center shadow-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-bounce" style={{ animationDelay: '0ms' }}></span>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-bounce" style={{ animationDelay: '150ms' }}></span>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-bounce" style={{ animationDelay: '300ms' }}></span>
@@ -854,7 +854,7 @@ Assistant:`;
                       key={q}
                       type="button"
                       onClick={() => handleSendMessage(q)}
-                      className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-white hover:bg-brand-primary/10 border border-brand-border hover:border-brand-primary text-brand-muted hover:text-brand-primary transition-all duration-200 shadow-sm"
+                      className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-brand-card hover:bg-brand-primary/10 border border-brand-border hover:border-brand-primary text-brand-muted hover:text-brand-primary transition-all duration-200 shadow-sm"
                     >
                       {q}
                     </button>
@@ -885,12 +885,12 @@ Assistant:`;
                     formStep === 'AWAITING_LOOKUP' ? "Enter tracking reference..." :
                     "Ask a question or request form..."
                   }
-                  className="flex-grow bg-white border border-brand-border rounded-xl px-4 py-2 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors shadow-sm"
+                  className="flex-grow bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-colors shadow-sm"
                 />
                 <button
                   type="submit"
                   disabled={!inputText.trim() || isLoading || formStep === 'AWAITING_CONFIRM'}
-                  className="p-2 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-purple hover:opacity-95 disabled:bg-white disabled:border disabled:border-brand-border disabled:text-brand-muted text-white transition-all shadow-sm"
+                  className="p-2 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-purple hover:opacity-95 disabled:bg-brand-dark disabled:border disabled:border-brand-border disabled:text-brand-muted text-white transition-all shadow-sm"
                   aria-label="Send Message"
                 >
                   <Send className="w-4 h-4" />

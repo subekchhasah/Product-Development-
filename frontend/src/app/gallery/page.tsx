@@ -222,7 +222,7 @@ export default function GalleryPage() {
         {filteredProjects.map((proj, idx) => (
           <div 
             key={idx}
-            className="bg-white rounded-[32px] border border-brand-border overflow-hidden hover:shadow-xl hover:border-brand-secondary/40 transition-all duration-300 flex flex-col group"
+            className="bg-brand-card rounded-[32px] border border-brand-border overflow-hidden hover:shadow-xl hover:border-brand-secondary/40 transition-all duration-300 flex flex-col group"
           >
             {/* Image banner */}
             <div className="h-52 relative overflow-hidden bg-slate-900 shrink-0">
@@ -233,7 +233,7 @@ export default function GalleryPage() {
                 priority={idx < 3}
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm border border-brand-border text-[9px] font-bold text-brand-secondary">
+              <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-card/95 backdrop-blur-sm border border-brand-border text-[9px] font-bold text-brand-secondary">
                 {proj.category}
               </span>
               <span className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-brand-charcoal/90 text-white text-[9px] font-bold">
@@ -282,7 +282,7 @@ export default function GalleryPage() {
       {/* Detail Dialog/Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-charcoal/45 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white rounded-[32px] border border-brand-border shadow-2xl max-w-2xl w-full overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="bg-brand-card rounded-[32px] border border-brand-border shadow-2xl max-w-2xl w-full overflow-hidden flex flex-col max-h-[90vh]">
             
             {/* Modal header image */}
             <div className="h-64 relative bg-slate-900 shrink-0">
@@ -326,7 +326,7 @@ export default function GalleryPage() {
                   <span className="text-[9px] uppercase font-bold text-brand-muted block">Integration Layer</span>
                   <div className="flex gap-1 mt-0.5">
                     {selectedProject.tech.slice(0, 2).map((t) => (
-                      <span key={t} className="px-1.5 py-0.5 rounded bg-white border border-brand-border text-[9px] font-mono text-brand-muted block">
+                      <span key={t} className="px-1.5 py-0.5 rounded bg-brand-dark border border-brand-border text-[9px] font-mono text-brand-muted block">
                         {t}
                       </span>
                     ))}

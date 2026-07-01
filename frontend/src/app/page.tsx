@@ -316,7 +316,7 @@ export default function LandingPage() {
               </a>
               <a
                 href="#solutions"
-                className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold bg-white border border-brand-border text-brand-charcoal hover:border-brand-primary transition-all text-sm shadow-sm"
+                className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold bg-brand-card border border-brand-border text-brand-charcoal hover:border-brand-primary transition-all text-sm shadow-sm"
               >
                 Explore Solutions
               </a>
@@ -355,8 +355,35 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* 2.5 Scrolling Marquee (ITactics Inspired) */}
+      <div className="relative w-full overflow-hidden bg-brand-card py-6 border-y border-brand-border">
+        <div className="flex animate-marquee whitespace-nowrap text-xs font-bold uppercase tracking-widest text-brand-charcoal items-center gap-8">
+          {[
+            'AGENCY', 'AI INTEGRATION', 'ENTERPRISE SYSTEMS', 'COMPUTER REPAIR', 
+            'DIGITAL PROTOTYPING', 'SYSTEM INTEGRATIONS', 'IT SERVICES', 
+            'SEO OUTREACH', 'SAAS FLOWS', 'SOFTWARE ENGINEERING', 'DEX PORTALS', 'STARTUP LOGISTICS'
+          ].map((item, idx) => (
+            <div key={idx} className="flex items-center gap-8 shrink-0">
+              <span>{item}</span>
+              <span className="w-2 h-2 rotate-45 bg-gradient-to-r from-brand-primary to-brand-purple"></span>
+            </div>
+          ))}
+          {/* Duplicate list for infinite loop */}
+          {[
+            'AGENCY', 'AI INTEGRATION', 'ENTERPRISE SYSTEMS', 'COMPUTER REPAIR', 
+            'DIGITAL PROTOTYPING', 'SYSTEM INTEGRATIONS', 'IT SERVICES', 
+            'SEO OUTREACH', 'SAAS FLOWS', 'SOFTWARE ENGINEERING', 'DEX PORTALS', 'STARTUP LOGISTICS'
+          ].map((item, idx) => (
+            <div key={`dup-${idx}`} className="flex items-center gap-8 shrink-0">
+              <span>{item}</span>
+              <span className="w-2.5 h-2.5 rotate-45 bg-gradient-to-r from-brand-primary to-brand-purple"></span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* 3. About Company Section - Warm light theme */}
-      <section id="about" className="py-20 bg-white border-y border-brand-border">
+      <section id="about" className="py-20 bg-brand-dark border-y border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -496,7 +523,7 @@ export default function LandingPage() {
           ].map((sol, i) => (
             <div
               key={i}
-              className="bg-white rounded-3xl border border-brand-border p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-brand-primary/40 transition-all duration-300"
+              className="bg-brand-card rounded-3xl border border-brand-border p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-brand-primary/40 transition-all duration-300"
             >
               <div>
                 <div className={`h-11 w-11 rounded-xl bg-gradient-to-tr ${sol.color} flex items-center justify-center mb-5`}>
@@ -515,7 +542,7 @@ export default function LandingPage() {
       </section>
 
       {/* 5. AI Virtual Assistant Showcase - Rounded Pastel styling */}
-      <section className="py-20 bg-white border-y border-brand-border">
+      <section className="py-20 bg-brand-dark border-y border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -564,7 +591,7 @@ export default function LandingPage() {
               </div>
 
               {/* Chat screen */}
-              <div className="p-4 h-64 overflow-y-auto space-y-4 bg-white/40 font-sans text-xs flex flex-col">
+              <div className="p-4 h-64 overflow-y-auto space-y-4 bg-brand-card/40 font-sans text-xs flex flex-col">
                 {showcaseMessages.map((msg, i) => (
                   <div
                     key={i}
@@ -582,7 +609,7 @@ export default function LandingPage() {
                     {/* Bubble */}
                     <div className={`p-3 rounded-2xl ${msg.sender === 'user'
                       ? 'bg-gradient-to-tr from-brand-primary to-brand-purple text-white rounded-tr-none'
-                      : `bg-white border border-brand-border text-brand-charcoal rounded-tl-none ${msg.isMono ? 'font-mono text-[10px] whitespace-pre-wrap' : ''
+                      : `bg-brand-card border border-brand-border text-brand-charcoal rounded-tl-none ${msg.isMono ? 'font-mono text-[10px] whitespace-pre-wrap' : ''
                       }`
                       }`}>
                       {msg.isMono ? (
@@ -607,7 +634,7 @@ export default function LandingPage() {
                     <div className="w-6 h-6 rounded-full bg-pink-100 text-brand-primary flex items-center justify-center shrink-0">
                       <Bot className="w-3.5 h-3.5" />
                     </div>
-                    <div className="bg-white border border-brand-border rounded-2xl rounded-tl-none p-3 flex gap-1.5 items-center justify-center">
+                    <div className="bg-brand-card border border-brand-border rounded-2xl rounded-tl-none p-3 flex gap-1.5 items-center justify-center">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-muted animate-bounce" style={{ animationDelay: '0ms' }}></span>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-muted animate-bounce" style={{ animationDelay: '150ms' }}></span>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-muted animate-bounce" style={{ animationDelay: '300ms' }}></span>
@@ -619,7 +646,7 @@ export default function LandingPage() {
               </div>
 
               {/* Chat Input form */}
-              <form onSubmit={handleSendShowcaseMessage} className="p-3 bg-white border-t border-brand-border flex gap-2">
+              <form onSubmit={handleSendShowcaseMessage} className="p-3 bg-brand-card border-t border-brand-border flex gap-2">
                 <input
                   type="text"
                   value={showcaseInput}
@@ -681,7 +708,7 @@ export default function LandingPage() {
           ].map((proj, i) => (
             <div
               key={i}
-              className="bg-white rounded-[32px] border border-brand-border overflow-hidden hover:border-brand-secondary/40 hover:shadow-lg transition-all duration-300 group"
+              className="bg-brand-card rounded-[32px] border border-brand-border overflow-hidden hover:border-brand-secondary/40 hover:shadow-lg transition-all duration-300 group"
             >
               <div className="h-48 relative overflow-hidden">
                 <Image
@@ -690,7 +717,7 @@ export default function LandingPage() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-brand-border text-[10px] font-bold text-brand-secondary">
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-card/90 backdrop-blur-sm border border-brand-border text-[10px] font-bold text-brand-secondary">
                   {proj.category}
                 </span>
               </div>
@@ -713,7 +740,7 @@ export default function LandingPage() {
       </section>
 
       {/* 7. Customer Testimonials */}
-      <section className="py-20 bg-white border-y border-brand-border overflow-hidden">
+      <section className="py-20 bg-brand-dark border-y border-brand-border overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           <h2 className="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-3">Customer Testimonials</h2>
@@ -744,14 +771,14 @@ export default function LandingPage() {
             <div className="flex justify-center gap-4 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="p-2.5 rounded-full bg-white hover:bg-brand-primary/10 border border-brand-border text-brand-muted hover:text-brand-charcoal transition-colors shadow-sm"
+                className="p-2.5 rounded-full bg-brand-card hover:bg-brand-primary/10 border border-brand-border text-brand-muted hover:text-brand-charcoal transition-colors shadow-sm"
                 aria-label="Previous Testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={nextTestimonial}
-                className="p-2.5 rounded-full bg-white hover:bg-brand-primary/10 border border-brand-border text-brand-muted hover:text-brand-charcoal transition-colors shadow-sm"
+                className="p-2.5 rounded-full bg-brand-card hover:bg-brand-primary/10 border border-brand-border text-brand-muted hover:text-brand-charcoal transition-colors shadow-sm"
                 aria-label="Next Testimonial"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -764,7 +791,7 @@ export default function LandingPage() {
 
       {/* 8. Success Metrics Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-white border border-brand-border rounded-[32px] p-8 md:p-12 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center shadow-sm">
+        <div className="bg-brand-card border border-brand-border rounded-[32px] p-8 md:p-12 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center shadow-sm">
           {[
             { value: '120+', label: 'Projects Completed' },
             { value: '98%', label: 'Satisfaction Rate' },
@@ -784,7 +811,7 @@ export default function LandingPage() {
       </section>
 
       {/* 9. Articles and Insights */}
-      <section id="articles" className="py-20 bg-white border-y border-brand-border">
+      <section id="articles" className="py-20 bg-brand-dark border-y border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
@@ -861,7 +888,7 @@ export default function LandingPage() {
           {events.map((evt, i) => (
             <div
               key={i}
-              className="bg-white rounded-[32px] border border-brand-border p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300"
+              className="bg-brand-card rounded-[32px] border border-brand-border p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300"
             >
               <div>
                 {evt.imageUrl && (
@@ -899,7 +926,7 @@ export default function LandingPage() {
         {/* Modal Event Alert (Simulated registration) */}
         {registeredEvent && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-            <div className="w-full max-w-md bg-white border border-brand-border p-6 rounded-[32px] shadow-2xl relative text-center">
+            <div className="w-full max-w-md bg-brand-card border border-brand-border p-6 rounded-[32px] shadow-2xl relative text-center">
               <div className="w-12 h-12 rounded-full bg-brand-secondary/10 text-brand-secondary flex items-center justify-center mx-auto mb-4 border border-brand-secondary/20">
                 <CheckCircle className="w-7 h-7" />
               </div>
@@ -920,7 +947,7 @@ export default function LandingPage() {
       </section>
 
       {/* 11. Interactive Contact Us Form & Categorization */}
-      <section id="contact" className="py-20 bg-white border-t border-brand-border">
+      <section id="contact" className="py-20 bg-brand-dark border-t border-brand-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -1009,7 +1036,7 @@ export default function LandingPage() {
                     A verification email has been simulated and logged. Our algorithms have categorized your query, and a team representative will follow up.
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto bg-white p-4 rounded-2xl border border-brand-border mt-6 text-left shadow-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto bg-brand-card p-4 rounded-2xl border border-brand-border mt-6 text-left shadow-sm">
                     <div>
                       <span className="text-[10px] text-brand-muted block uppercase font-bold">Inquiry Category</span>
                       <span className="text-xs font-bold text-brand-secondary mt-1 block">
@@ -1048,7 +1075,7 @@ export default function LandingPage() {
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. Alexis Carter"
-                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                        className="w-full bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
                       />
                     </div>
 
@@ -1063,7 +1090,7 @@ export default function LandingPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="e.g. alexis@company.com"
-                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                        className="w-full bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
                       />
                     </div>
                   </div>
@@ -1080,7 +1107,7 @@ export default function LandingPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="e.g. +1 (555) 123-4567"
-                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                        className="w-full bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
                       />
                     </div>
 
@@ -1095,7 +1122,7 @@ export default function LandingPage() {
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         placeholder="e.g. Zenith Tech"
-                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                        className="w-full bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
                       />
                     </div>
 
@@ -1110,7 +1137,7 @@ export default function LandingPage() {
                         value={formData.country}
                         onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                         placeholder="e.g. United Kingdom"
-                        className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                        className="w-full bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
                       />
                     </div>
                   </div>
@@ -1126,7 +1153,7 @@ export default function LandingPage() {
                       value={formData.jobTitle}
                       onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
                       placeholder="e.g. VP of Product Engineering"
-                      className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
+                      className="w-full bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all shadow-sm"
                     />
                   </div>
 
@@ -1144,7 +1171,7 @@ export default function LandingPage() {
                       value={formData.jobDetails}
                       onChange={(e) => setFormData({ ...formData, jobDetails: e.target.value })}
                       placeholder="Describe your system integrations, dashboard mockups, or chatbot workflows in detail..."
-                      className="w-full bg-white border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all resize-none shadow-sm"
+                      className="w-full bg-brand-dark/50 border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-charcoal placeholder-slate-400 focus:outline-none focus:border-brand-primary transition-all resize-none shadow-sm"
                     ></textarea>
                   </div>
 

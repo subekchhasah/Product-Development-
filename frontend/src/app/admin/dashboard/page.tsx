@@ -463,7 +463,7 @@ export default function AdminDashboard() {
 
             {/* Notification Dropdown Panel */}
             {showNotificationsDropdown && (
-              <div className="absolute right-0 mt-2 w-80 bg-white border border-brand-border rounded-2xl shadow-xl z-50 overflow-hidden animate-float-in">
+              <div className="absolute right-0 mt-2 w-80 bg-brand-card border border-brand-border rounded-2xl shadow-xl z-50 overflow-hidden animate-float-in">
                 <div className="p-3 bg-gradient-to-r from-brand-primary/10 via-brand-purple/10 to-brand-secondary/10 border-b border-brand-border/60 flex justify-between items-center text-xs font-bold text-brand-charcoal">
                   <span>🔔 Notifications ({unreadNotifications.length})</span>
                   {unreadNotifications.length > 0 && (
@@ -1078,7 +1078,7 @@ export default function AdminDashboard() {
               markAsRead(toast.inquiry.id);
               setToasts(prev => prev.filter(t => t.id !== toast.id));
             }}
-            className="pointer-events-auto bg-white border border-brand-border rounded-2xl p-4 shadow-2xl flex gap-3 items-start cursor-pointer hover:border-brand-primary hover:scale-[1.02] transition-all duration-300 animate-float-in"
+            className="pointer-events-auto bg-brand-card border border-brand-border rounded-2xl p-4 shadow-2xl flex gap-3 items-start cursor-pointer hover:border-brand-primary hover:scale-[1.02] transition-all duration-300 animate-float-in"
           >
             <div className="w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 border border-brand-primary/25">
               <Bell className="w-4 h-4" />
